@@ -4,15 +4,15 @@
     connection: local
 
     tasks:
-      # - name: OSPF configuration
-      #   block:
       - name: Get IP's configured on router
         ios_facts:
           gather_subset: interfaces
+
       - name: Configure OSPF process ID 1
         ios_config:
           lines:
             - router ospf 1
+            
       - name: Configure network statements for OSPF process ID 1
         ios_config:
           lines:
