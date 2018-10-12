@@ -1,0 +1,19 @@
+---
+  - hosts: all
+    gather_facts: false
+    connection: local
+
+    tasks:
+
+      - name: Configure login banner
+        ios_banner:
+          banner: login
+          text: |
+            ******************************************
+            **  Unauthorized access is prohibited.  **
+            ******************************************
+          state: present
+        register: output
+
+      - debug:
+          msg: "{{output}}"
