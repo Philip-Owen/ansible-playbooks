@@ -1,0 +1,30 @@
+---
+  - hosts: ROUTERS
+    gather_facts: false
+    connection: local
+
+    tasks:
+      - name: OSPF configuration
+        block:
+          - name: Get IP's configured on router
+            ios_facts:
+              gather_subset: interfaces
+          - name: Configure OSPF process ID 1
+            ios_config:
+              lines:
+                - router ospf 1
+          - name: Configure network statements for OSPF process ID 1
+            ios_config:
+              lines:
+                - network {{ item }} 0.0.0.0 area 0
+              parents: router ospf 1
+            loop: "{{ansible_facts.net_all_ipv4_addresses}}"
+
+      - name: Get OSPF configuration
+        ios_command:
+          commands:
+            - sho run | i ospf|network
+        register: ospf
+
+      - debug:
+          msg: "{{ospf.stdout_lines}}"
