@@ -1,0 +1,9 @@
+--- 
+  - name: Generate Site-To-Site IPSec VPN Configs
+    hosts: routers
+    gather_facts: false
+    connection: local
+
+    tasks:
+      - name: Build configs
+        template: src=./templates/ipsec.j2 dest=./final_configs/{{ inventory_hostname }}_IPSec.cfg

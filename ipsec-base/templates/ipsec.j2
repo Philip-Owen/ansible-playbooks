@@ -1,0 +1,27 @@
+crypto isakmp policy {{ global.isakmp_policy_number }}
+    authentication pre-share
+    encr aes 128
+    hash md5
+    group 2
+    lifetime 21600
+    exit
+
+crypto isakmp key {{ global.isakmp_pre_share }} address {{ config.peer_address }}
+
+crypto ipsec transform-set {{ global.transform_set }} esp-sha-hmac esp-aes 256
+    mode tunnel
+    exit
+
+ip access-list extended {{ global.acl_name }}
+    permit ip {{ config.local_network}} {{ config.remote_network}}
+    exit
+
+crypto map {{ global.crypto_map }} 1 ipsec-isakmp
+    match address {{ global.acl_name }}
+    set transform-set {{ global.transform_set }}
+    set peer {{ config.peer_address }}
+    exit
+
+interface {{ config.interface }}
+    crypto map {{ global.crypto_map }}
+    exit

@@ -1,0 +1,7 @@
+---
+  global:
+    isakmp_policy_number: 1
+    isakmp_pre_share: cisco123
+    transform_set: STS-VPN-TS
+    acl_name: IPSEC_ACL
+    crypto_map: STS-VPN-MAP
