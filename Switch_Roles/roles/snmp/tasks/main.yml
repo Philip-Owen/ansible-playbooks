@@ -1,0 +1,4 @@
+---
+  - name: Configure SNMPv3
+    ios_config:
+      src: "templates/snmp.j2"

@@ -1,0 +1,4 @@
+---
+  - name: Configure STP Root
+    ios_config:
+      src: "templates/stp-root.j2"

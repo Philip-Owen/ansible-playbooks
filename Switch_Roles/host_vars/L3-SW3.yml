@@ -1,0 +1,8 @@
+---
+  model: 3560
+    # Should Switch be STP root?
+  stp_root: false
+  # List of interfaces to assign to vlans
+  interfaces:
+    - ports: 13-20
+      vlan: 5

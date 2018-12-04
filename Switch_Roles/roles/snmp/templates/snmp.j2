@@ -1,0 +1,3 @@
+snmp-server view {{ snmp.view.name }} {{ snmp.view.MIB_family}} included
+snmp-server group {{ snmp.group.name }} v3 priv {{ snmp.group.access }} {{ snmp.view.name }}
+snmp-server user {{ snmp.user.name }} {{ snmp.group.name }} v3 auth sha {{ snmp.user.password }} priv des56 {{ snmp.user.shared_secret }}

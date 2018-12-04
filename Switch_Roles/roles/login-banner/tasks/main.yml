@@ -1,0 +1,9 @@
+---
+  - name: Configure Login Banner
+    ios_banner:
+      banner: login
+      text: |
+        ******************************************
+        **  Unauthorized access is prohibited.  **
+        ******************************************
+      state: present

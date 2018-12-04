@@ -1,0 +1,11 @@
+---
+  - name: Configure Switches
+    hosts: switches
+    connection: local
+    gather_facts: false
+    roles:
+      - name: login-banner
+      - name: snmp
+      - name: stp-root
+        when: "stp_root"
+      - name: vlan-assignment

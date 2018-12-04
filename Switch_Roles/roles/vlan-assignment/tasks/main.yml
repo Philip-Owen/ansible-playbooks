@@ -1,0 +1,4 @@
+---
+  - name: Assign VLANS/Swichports
+    ios_config:
+      src: "templates/vlan.j2"

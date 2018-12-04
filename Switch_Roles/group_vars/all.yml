@@ -1,0 +1,14 @@
+---
+  snmp:
+    view:
+      name: MONITORING
+      MIB_family: iso
+    group:
+      name: PRTG
+      access: read
+    user:
+      name: prtg
+      password: cisco4321
+      shared_secret: cisco1234
+
+

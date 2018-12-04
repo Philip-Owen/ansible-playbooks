@@ -1,0 +1,4 @@
+[switches]
+L3-SW1 ansible_host=10.25.1.10
+L3-SW2 ansible_host=10.25.1.11
+L3-SW3 ansible_host=10.25.1.12
