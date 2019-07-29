@@ -1,0 +1,14 @@
+---
+- hosts: routers
+  gather_facts: false
+  connection: local
+
+  tasks:
+      - name: CREATE INTERFACES
+        ios_config:
+            src: 'templates/interfaces.j2'
+        with_items: "{{hostvars[inventory_hostname]['interfaces']}}"
+
+      - name: CONFIGURE BGP
+        ios_config:
+            src: 'templates/bgp.j2'

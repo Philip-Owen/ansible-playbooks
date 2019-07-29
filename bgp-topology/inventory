@@ -1,0 +1,8 @@
+[all:vars]
+ansible_user=admin
+ansible_ssh_pass=cisco
+
+[routers]
+R1 ansible_host=172.18.99.1
+R2 ansible_host=172.18.99.2
+R3 ansible_host=172.18.99.3

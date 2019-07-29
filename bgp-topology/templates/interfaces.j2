@@ -1,0 +1,5 @@
+interface {{ item.name }}
+{% if item.vlan is defined %}
+ encapsulation dot1q {{ item.vlan }}
+{% endif %}
+ ip address {{ item.ip_address}}

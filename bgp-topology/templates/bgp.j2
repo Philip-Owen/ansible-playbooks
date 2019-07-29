@@ -1,0 +1,6 @@
+router bgp {{ as_number }}
+ bgp log-neighbor-changes
+ redistribute connected
+{% for p in peer %}
+ neighbor {{ p.ip }} remote-as {{ hostvars[p.hostname]['as_number'] }}
+{% endfor %}

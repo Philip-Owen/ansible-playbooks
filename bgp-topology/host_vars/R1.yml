@@ -1,0 +1,11 @@
+---
+interfaces:
+    - name: Loopback0
+      ip_address: 172.255.255.1 255.255.255.255
+    - name: FastEthernet0/0.500
+      ip_address: 10.1.1.1 255.255.255.252
+      vlan: 500
+as_number: 61111
+peer:
+    - hostname: R2
+      ip: 10.1.1.2
