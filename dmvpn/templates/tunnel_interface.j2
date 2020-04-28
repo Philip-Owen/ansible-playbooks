@@ -1,0 +1,23 @@
+int tu0
+ tunnel source g0/0
+ tunnel mode gre multipoint
+ tunnel key {{tunnel_key}}
+ ip nhrp network-id {{nhrp_net_id}}
+ ip nhrp authentication {{nhrp_auth}}
+ ip nhrp map multicast dynamic
+ ip nhrp shortcut
+ {%if is_hub %}
+ ip nhrp redirect
+ {% endif %}
+ {%if not is_hub %}
+ ip nhrp nhs {{hub_tunnel}}
+ ip nhrp map {{hub_tunnel}} {{hub_nbma}}
+ ip nhrp map multicast {{hub_nbma}}
+ ip ospf priority 0
+ {% endif %}
+ ip address {{tunnel_ip}} 255.255.255.0
+ ip mtu 1400
+ ip tcp adjust-mss 1360
+ ip ospf network broadcast
+
+

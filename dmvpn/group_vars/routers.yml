@@ -1,0 +1,6 @@
+---
+tunnel_key: 1234
+nhrp_net_id: 1
+nhrp_auth: cisco1234
+hub_tunnel: 172.16.0.1
+hub_nbma: 15.0.0.1

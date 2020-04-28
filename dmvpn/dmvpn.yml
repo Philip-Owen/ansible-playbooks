@@ -1,0 +1,13 @@
+---
+- hosts: routers
+  gather_facts: false
+  connection: local
+
+  tasks:
+    - name: CREATE TUNNEL INTERFACES
+      ios_config:
+        src: "templates/tunnel_interface.j2"
+
+    - name: CREATE OSPF INSTANCES
+      ios_config:
+        src: "templates/ospf.j2"
